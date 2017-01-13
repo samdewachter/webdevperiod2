@@ -14,14 +14,14 @@
 					{{ csrf_field() }}
 					<div class="form-group {{ $errors->has('question') ? 'has-error' : '' }}">
 						<label>Vraag</label>
-						<input type="text" class="form-control" name="question">
+						<input type="text" class="form-control" name="question" value="{{ old('question') }}">
 						@if ($errors->has('question'))
 							<span class="help-block"><strong>{{ $errors->first('question') }}</strong></span>
 						@endif
 					</div>
 					<div class="form-group {{ $errors->has('answer') ? 'has-error' : '' }}">
 						<label>Antwoord</label>
-						<textarea class="form-control" name="answer" rows="5"></textarea>
+						<textarea class="form-control" name="answer" rows="5">{{ old('answer') }}</textarea>
 						@if ($errors->has('answer'))
 							<span class="help-block"><strong>{{ $errors->first('answer') }}</strong></span>
 						@endif

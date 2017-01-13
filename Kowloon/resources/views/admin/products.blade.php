@@ -42,12 +42,12 @@
 								<td>
 									<ul>
 										<li>
-											<a href="{{ url('admindashboard/product/edit', $hotItem->Product->id) }}" class="btn btn-default" aria-label="Left Align">
+											<a href="{{ url('admindashboard/product/edit', $hotItem->Product->url) }}" class="btn btn-default" aria-label="Left Align">
 											  <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
 											</a>
 										</li>
 										<li>
-											<a href="{{ url('admindashboard/product/faq/edit', $hotItem->Product->id) }}" class="btn btn-default" aria-label="Left Align">
+											<a href="{{ url('admindashboard/product/faq/edit', $hotItem->Product->url) }}" class="btn btn-default" aria-label="Left Align">
 											  <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
 											</a>
 										</li>
@@ -88,12 +88,12 @@
 									<td>
 										<ul>
 											<li>
-												<a href="{{ url('admindashboard/product/edit', $product->id) }}" class="btn btn-default" aria-label="Left Align">
+												<a href="{{ url('admindashboard/product/edit', $product->url) }}" class="btn btn-default" aria-label="Left Align">
 												  <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
 												</a>
 											</li>
 											<li>
-												<form method="POST" action="{{ url('admindashboard/product/delete', $product->id) }}">
+												<form method="POST" action="{{ url('admindashboard/product/delete', $product->url) }}">
 													{{ csrf_field() }}
 													<input type="hidden" name="_method" value="DELETE" />
 													<button type="submit" class="btn btn-danger" aria-label="Left Align">
@@ -102,7 +102,7 @@
 												</form>
 											</li>
 											<li>
-												<a href="{{ url('admindashboard/product/faq/edit', $product->id) }}" class="btn btn-default" aria-label="Left Align">
+												<a href="{{ url('admindashboard/product/faq/edit', $product->url) }}" class="btn btn-default" aria-label="Left Align">
 												  <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
 												</a>
 											</li>

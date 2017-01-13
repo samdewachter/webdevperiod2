@@ -34,7 +34,7 @@
 					<div class="about-contact-info col-md-4">
 						<h4>CONTACT</h4>
 						<ul>
-							<li>Declx Johan</li>
+							<li>Deckx Johan</li>
 							<li>Bosdreef 7</li>
 							<li>2200 Herentals</li>
 						</ul>
@@ -44,13 +44,19 @@
 					<h4>LEAVE US A MESSAGE</h4>
 					<form method="POST" action="{{ url('about/contact') }}" class="col-md-8">
 						{{csrf_field()}}
-						<div class="form-group">
+						<div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
 							<label>E-mail</label>
-							<input class="form-control" type="text" placeholder="name@domain.com" name="email">
+							<input class="form-control" type="text" placeholder="name@domain.com" name="email" value="{{ old('email') }}">
+							@if ($errors->has('email'))
+								<span class="help-block"><strong>{{ $errors->first('email') }}</strong></span>
+							@endif
 						</div>
-						<div class="form-group">
+						<div class="form-group {{ $errors->has('text') ? 'has-error' : '' }}">
 							<label>Your message</label>
-							<textarea class="form-control" rows="5" placeholder="Write your message here" name="text"></textarea>
+							<textarea class="form-control" rows="5" placeholder="Write your message here" name="text">{{ old('text') }}</textarea>
+							@if ($errors->has('text'))
+								<span class="help-block"><strong>{{ $errors->first('text') }}</strong></span>
+							@endif
 						</div>
 						<div class="form-group">
 							<button class="form-control">Send</button>

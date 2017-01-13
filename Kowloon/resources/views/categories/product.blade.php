@@ -12,12 +12,17 @@
 	                    {{ session('success') }}
 	                </div>
 	            @endif
+	            @if ($errors->has('email'))
+	                <div class="alert alert-danger">
+	                    Email was not sent. {{ $errors->first('email') }}
+	                </div>
+	            @endif
 				<div class="col-md-6">
 					<div class="product-pictures clearfix">
 						<div class="main-picture">
 							@if(count($product->photos) > 0)
 								@foreach($product->photos as $photo)
-									<img src="{{ url('uploads/products', $photo->name) }}">
+									<a href='#img{{$photo->id}}'><img class="center-photo" src="{{ url('uploads/products', $photo->name) }}"></a>
 								@endforeach
 							@else
 								<img src="{{ url('img/Home_img2.png') }}">
@@ -35,10 +40,16 @@
 							@endif
 						</div>
 						@if(count($product->photos) < 1)
-							<div class="alert alert-info">Er zijn geen foto's voor dit product.</div>
+							<div class="alert alert-info">{{ Lang::get('product.noPhoto') }}</div>
 						@endif
 					</div>
 				</div>
+
+				@foreach($product->photos as $photo)
+					<a href="#_" class="lightbox" id="img{{ $photo->id }}">
+						<img src="{{ url('uploads/products', $photo->name) }}">
+					</a>
+				@endforeach
 
 				<div class="col-md-6">
 					<div class="product-info">
@@ -76,12 +87,6 @@
 				<div class="col-md-12">
 					<div class="product-specifications">
 						<h5>{{ Lang::get('product.specifications') }}</h5>
-						<h6>DIMENSIONS</h6>
-						<ul class="product-dimensions">
-							<li><strong>S</strong> - 53x16cm</li>
-							<li><strong>M</strong> - 53x16cm</li>
-							<li><strong>L</strong> - 53x16cm</li>
-						</ul>
 						<h6>TITEL</h6>
 						<ul>
 							<li>{{ $product->technicalText }}</li>
@@ -95,16 +100,16 @@
 
 				<h4>{{ Lang::get('product.related') }}</h4>
 				@if(count($products) == 1)
-					<div class"alert alert-info">Er zijn geen related producten.</div>
+					<div class="alert alert-info">{{ Lang::get('product.noRelated') }}</div>
 				@endif
 				@foreach($products as $relatedProduct)
 
 					@if($product->id != $relatedProduct->id)
-						<a href="{{ url('categories', [$category->url, 'product', $relatedProduct->id]) }}">
+						<a href="{{ url('categories', [$category->url, 'product', $relatedProduct->url]) }}">
 							<div class="col-md-3">
 								<div class="related-product">
 									<div class="related-product-picture">
-										<img src="{{ url('uploads/products', $relatedProduct->photos[0]->name) }}">
+										@if(count($relatedProduct->photos) < 1) <img src="{{ url('img/Home_img2.png') }}"> @else <img src="{{ url('uploads/products', $relatedProduct->photos[0]->name) }}"> @endif
 									</div>
 									<div class="product-name clearfix"> {{ $relatedProduct->name }}	<div class="pull-right"> €{{ $relatedProduct->price }} </div></div>
 								</div>
@@ -118,7 +123,7 @@
 			<div class="product-FAQ-wrapper clearfix">
 				<h4>{{ Lang::get('product.faq') }}</h4>
 				@if(count($product->Faqs) == 0)
-					<div class="alert alert-info">Er zijn geen FAQs voor dit product.</div>
+					<div class="alert alert-info">{{ Lang::get('product.noFaq') }}</div>
 				@endif
 				<div class="product-FAQs">
 					@foreach($product->Faqs as $faq)

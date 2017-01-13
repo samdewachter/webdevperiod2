@@ -17,6 +17,7 @@ class ProductsTableSeeder extends Seeder
 		    	"price" => "19.99",
 		    	"description" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 		    	"technicalText" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+		    	"url" => "Vogelkooi",
 		    	"category_id" => 3,
 		    	"tag_id" => 3
     		],
@@ -25,22 +26,25 @@ class ProductsTableSeeder extends Seeder
 		    	"price" => "14.99",
 		    	"description" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 		    	"technicalText" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+		    	"url" => "Cooling-mat",
 		    	"category_id" => 1,
 		    	"tag_id" => 2
 		    ],
 		    [
-	    		"name" => "Drink bak",
+	    		"name" => "Voerbak hond",
 		    	"price" => "9.99",
 		    	"description" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 		    	"technicalText" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+		    	"url" => "Voerbak-hond",
 		    	"category_id" => 1,
 		    	"tag_id" => 5
 		    ],
 		    [
-	    		"name" => "Drink bak",
+	    		"name" => "Voerbak kat",
 		    	"price" => "9.99",
 		    	"description" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 		    	"technicalText" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+		    	"url" => "Voerbak-kat",
 		    	"category_id" => 2,
 		    	"tag_id" => 5
 		    ],
@@ -49,6 +53,7 @@ class ProductsTableSeeder extends Seeder
 		    	"price" => "14.99",
 		    	"description" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 		    	"technicalText" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+		    	"url" => "Halsband",
 		    	"category_id" => 1,
 		    	"tag_id" => 3
 		    ],
@@ -57,6 +62,7 @@ class ProductsTableSeeder extends Seeder
 		    	"price" => "24.99",
 		    	"description" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 		    	"technicalText" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+		    	"url" => "Aquarium",
 		    	"category_id" => 4,
 		    	"tag_id" => 1
 		    ]
@@ -83,27 +89,39 @@ class ProductsTableSeeder extends Seeder
 
 		$photos = [
 			[
-				"name" => "1bannerNYE.jpg",
+				"name" => "article1.jpg",
 				"product_id" => 1
 			],
 			[
-				"name" => "2bannerNYE.jpg",
+				"name" => "article2.png",
 				"product_id" => 2
 			],
 			[
-				"name" => "3bannerNYE.jpg",
+				"name" => "article3.1.jpg",
 				"product_id" => 3
 			],
 			[
-				"name" => "4bannerNYE.jpg",
+				"name" => "article3.2.jpg",
+				"product_id" => 3
+			],
+			[
+				"name" => "article4.1.jpg",
 				"product_id" => 4
 			],
 			[
-				"name" => "5bannerNYE.jpg",
+				"name" => "article4.2.jpg",
+				"product_id" => 4
+			],
+			[
+				"name" => "article5.1.jpg",
 				"product_id" => 5
 			],
 			[
-				"name" => "6bannerNYE.jpg",
+				"name" => "article5.2.jpg",
+				"product_id" => 5
+			],
+			[
+				"name" => "article6.jpg",
 				"product_id" => 6
 			]
 		];

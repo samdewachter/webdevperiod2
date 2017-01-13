@@ -37,12 +37,6 @@ Route::get('/admindashboard/product/faq/edit/{product}', 'AdminController@editFa
 Route::delete('/admindashboard/product/faq/delete/{product}/{faqproduct}', 'AdminController@deleteFaqProduct');
 Route::post('/admindashboard/product/faq/add/{product}/{faq}', 'AdminController@addFaqProduct');
 
-Route::get('/admindashboard/hotproducts', 'AdminController@hotproducts');
-Route::post('/admindashboard/hotproduct/new/{product}', 'AdminController@newHotproduct');
-Route::delete('/admindashboard/hotproduct/delete/{hotItem}', 'AdminController@deleteHotproduct');
-Route::get('/admindashboard/hotproduct/edit/{product}', 'AdminController@editHotproduct');
-Route::post('/admindashboard/hotproduct/edit/{product}', 'AdminController@updateHotproduct');
-
 Route::get('/admindashboard/faq', 'AdminController@faq');
 Route::get('/admindashboard/faq/new', 'AdminController@newFaq');
 Route::post('/admindashboard/faq/new', 'AdminController@createFaq');

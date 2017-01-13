@@ -8,7 +8,6 @@ $(document).ready(function(){
     percentTime;
 
     $slick = $('.header-photos');
-        console.log($slick);
         $slick.slick({
         arrows: false,
         draggable: true,
@@ -64,7 +63,6 @@ $(document).ready(function(){
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: false,
-        fade: true,
         asNavFor: '.other-pictures'
     });
     $('.other-pictures').slick({
@@ -87,7 +85,6 @@ $(document).ready(function(){
         $('.logo-k').toggle();
         $('.logo-kowloon').toggle();
         $('li').toggleClass("nav-normal");
-        console.log('clicked');
     })
 
     $(".advanced-search-filter").hide();

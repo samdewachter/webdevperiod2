@@ -2,7 +2,7 @@
 
 @section('content')
 
-	<div class="dashboard-products-wrapper">
+	<div class="dashboard-products-wrapper clearfix">
 
 		<div class="dashboard-products col-md-10 col-md-offset-1">
 
@@ -10,7 +10,7 @@
 
 			<div class="new-product">
 
-				<form method="POST" action="{{ url('admindashboard/product/edit', $product->id) }}" enctype="multipart/form-data">
+				<form method="POST" action="{{ url('admindashboard/product/edit', $product->url) }}" enctype="multipart/form-data">
 					{{ csrf_field() }}
 					<div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
 						<label>Product naam</label>

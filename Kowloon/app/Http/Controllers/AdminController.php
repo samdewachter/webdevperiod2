@@ -43,18 +43,21 @@ class AdminController extends Controller
     public function makeProduct(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
-            'price' => 'required',
+            'name' => 'required|unique:products,name',
+            'price' => 'required|numeric',
             'description' => 'required',
             'category_id' => 'required',
             'tag_id' => 'required',
             'technicalText' => 'required',
-            'photo' => 'required',
+            'photo' => 'required|mimes:jpg,jpeg,png|max:5120',
             'color_id' => 'required'
         ]);
 
         $product = new Product();
         $product->name = $request->name;
+        $nameExplode = explode(" ", $request->name);
+        $nameImplode = implode("-", $nameExplode);
+        $product->url = $nameImplode;
         $product->price = $request->price;
         $product->description = $request->description;
         $product->category_id = $request->category_id;
@@ -95,6 +98,13 @@ class AdminController extends Controller
     {
         $product->Colors()->detach();
 
+        $productId = $product->id;
+
+        $hotItem = HotItem::where('product_id', '=', $productId)->first();
+        if ($hotItem != null) {
+            return back()->with('error', 'U probeert een hot item te verwijderen, verwissel eerst het product en verwijder het dan pas.');
+        }
+
         if(!$product->delete()) {
             return back()->with('error', 'Product is niet succesvol verwijderd.');
         }
@@ -115,16 +125,20 @@ class AdminController extends Controller
     public function updateProduct(Request $request, Product $product)
     {
         $this->validate($request, [
-            'name' => 'required',
-            'price' => 'required',
+            'name' => 'required|unique:products,name,'.$product->id,
+            'price' => 'required|numeric',
             'description' => 'required',
             'category_id' => 'required',
             'tag_id' => 'required',
             'technicalText' => 'required',
-            'color_id' => 'required'
+            'color_id' => 'required',
+            'photo' => 'mimes:jpg,jpeg,png|max:5120'
         ]);
 
         $product->name = $request->name;
+        $nameExplode = explode(" ", $request->name);
+        $nameImplode = implode("-", $nameExplode);
+        $product->url = $nameImplode;
         $product->price = $request->price;
         $product->description = $request->description;
         $product->category_id = $request->category_id;
@@ -253,40 +267,6 @@ class AdminController extends Controller
         $product->Faqs()->detach($faqproduct);
 
         return back()->with('success', 'FAQ is succesvol verwijderd van het product.');
-    }
-
-    public function hotproducts()
-    {
-        $hotItems = HotItem::orderBy('place', 'ASC')->get();
-
-    	return view('admin.hotproducts', compact('hotItems'));
-    }
-
-    public function editHotproduct(Product $product)
-    {
-        $hotItems = HotItem::orderBy('place', 'ASC')->get();
-
-        return view('admin.editHotproduct', compact('product', 'hotItems'));
-    }
-
-    public function updateHotproduct(Request $request, Product $product)
-    {
-        $hotItem1 = HotItem::where('place', $request->place)->get();
-        $hotItem1 = HotItem::find($hotItem1[0]->id);
-
-        $hotItem2 = HotItem::where('place', $product->hotItems[0]->place)->get();
-        $hotItem2 = HotItem::find($hotItem2[0]->id);
-
-        $place1 = $hotItem1->place;
-        $place2 = $hotItem2->place;
-
-        $hotItem1->place = $place2;
-        $hotItem2->place = $place1;
-
-        $hotItem1->save();
-        $hotItem2->save();
-
-        return redirect('admindashboard/products')->with('success', 'Hot product is succesvol gewijzigd.');
     }
 
     public function faq()

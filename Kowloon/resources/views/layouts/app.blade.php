@@ -52,7 +52,7 @@
                     </ul>
                     <div class="horizontal-divider"></div>
                     <ul class="clearfix">
-                        <li class="nav-normal"><a href="{{ url('categories/dog') }}"><img class="category-icon" src="@if(Request::is('categories/dog')) {{ url('/img/categories/dog.png') }} @else {{ url('/img/categories/white_dog.png') }} @endif"><strong class="nav-text">Dog</strong></a></li>
+                        <li class="nav-normal"><a href="{{ url('categories/dog') }}"><img class="category-icon" src="@if(Request::is('../dog/..')) {{ url('/img/categories/dog.png') }} @else {{ url('/img/categories/white_dog.png') }} @endif"><strong class="nav-text">Dog</strong></a></li>
                         <li class="nav-normal"><a href="{{ url('categories/cat') }}"><img class="category-icon" src="@if(Request::is('categories/cat')) {{ url('/img/categories/cat.png') }} @else {{ url('/img/categories/white_cat.png') }} @endif"><strong class="nav-text">Cat</strong></a></li>
                         <li class="nav-normal"><a href="{{ url('categories/bird') }}"><img class="category-icon" src="@if(Request::is('categories/bird')) {{ url('/img/categories/bird.png') }} @else {{ url('/img/categories/white_bird.png') }} @endif"><strong class="nav-text">Bird</strong></a></li>
                         <li class="nav-normal"><a href="{{ url('categories/fish') }}"><img class="category-icon" src="@if(Request::is('categories/fish')) {{ url('/img/categories/fish.png') }} @else {{ url('/img/categories/white_fish.png') }} @endif"><strong class="nav-text">Fish</strong></a></li>
@@ -78,7 +78,7 @@
                     @endif
                     <li class="nav-normal"><a href="{{ url('/language?lang=nl') }}"><strong class="language">NL</strong><strong class="nav-text">Nederlands</strong></a></li>
                     <li class="nav-normal"><a href="{{ url('/language?lang=en') }}"><strong class="language">EN</strong><strong class="nav-text">English</strong></a></li>
-                    <li class="nav-normal"><a href="{{ url('/about') }}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><strong class="nav-text">About us</strong></a></li>
+                    <li class="nav-normal"><a href="{{ url('/about') }}"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><strong class="nav-text">About us</strong></a></li>
                     <li><a href="{{url('/')}}"><img class="logo-k" src="{{ url('/img/K.png') }}"><img class="logo-kowloon" src="{{ url('/img/Kowloon.png') }}"></a></li>
                 </ul>
 

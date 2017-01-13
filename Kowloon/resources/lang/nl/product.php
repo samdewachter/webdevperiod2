@@ -6,5 +6,8 @@ return array(
 	'more' => 'Meer Vragen?',
 	'specifications' => 'Specificaties',
 	'colors' => 'Kleur',
-	'description' => 'Descriptie'
+	'description' => 'Descriptie',
+	'noFaq' => "Er zijn nog geen FAQ's voor dit product.",
+	'noPhoto' => "Er zijn nog geen foto's voor dit product.",
+	'noRelated' => "Er zijn nog geen gerelateerde producten voor dit product."
 );

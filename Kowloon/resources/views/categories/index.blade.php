@@ -78,7 +78,7 @@
 					<div class="alert alert-info">Er zijn nog geen producten voor deze categorie.</div>
 				@endif
 				@foreach($products as $product)
-					<a href="{{ url('categories', [$category->url, 'product', $product->id]) }}">
+					<a href="{{ url('categories', [$category->url, 'product', $product->url]) }}">
 						<div class="col-md-3">
 							<div class="product">
 								<div class="photo">

@@ -31,4 +31,9 @@ class product extends Model
     public function Colors(){
         return $this->belongsToMany('App\Color');
     }
+
+    public function getRouteKeyName()
+    {
+        return 'url';
+    }
 }

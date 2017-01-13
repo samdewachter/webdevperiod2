@@ -22,6 +22,11 @@
                     {{ session('success') }}
                 </div>
             @endif
+            @if ($errors->has('email'))
+                <div class="alert alert-danger">
+                    Email was not sent. {{ $errors->first('email') }}
+                </div>
+            @endif
             <div class="info">
                 <p>{{ Lang::get('info.intro') }}</p>
             </div>
@@ -45,7 +50,7 @@
                 <div class="hot-items">
 
                     @foreach($hotItems as $hotItem)
-                        <a href="{{ url('categories', [$hotItem->product->category->url, 'product' ,$hotItem->product_id]) }}">
+                        <a href="{{ url('categories', [$hotItem->product->category->url, 'product' ,$hotItem->product->url]) }}">
                             <div class="col-md-3">
                                 <div class="hot-item">
                                     <div class="photo">

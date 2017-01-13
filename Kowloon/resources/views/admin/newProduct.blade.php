@@ -2,7 +2,7 @@
 
 @section('content')
 
-	<div class="dashboard-products-wrapper">
+	<div class="dashboard-products-wrapper clearfix">
 
 		<div class="dashboard-products col-md-10 col-md-offset-1">
 
@@ -14,28 +14,28 @@
 					{{ csrf_field() }}
 					<div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
 						<label>Product naam</label>
-						<input type="text" class="form-control" name="name">
+						<input type="text" class="form-control" name="name" value="{{ old('name') }}">
 						@if ($errors->has('name'))
 							<span class="help-block"><strong>{{ $errors->first('name') }}</strong></span>
 						@endif
 					</div>
 					<div class="form-group {{ $errors->has('price') ? 'has-error' : '' }}">
 						<label>Prijs</label>
-						<input type="number" class="form-control" min="0" step="0.01" name="price">
+						<input type="number" class="form-control" min="0" step="0.01" name="price" value="{{ old('price') }}">
 						@if ($errors->has('price'))
 							<span class="help-block"><strong>{{ $errors->first('price') }}</strong></span>
 						@endif
 					</div>
 					<div class="form-group {{ $errors->has('description') ? 'has-error' : '' }}">
 						<label>Descriptie</label>
-						<textarea class="form-control" name="description" rows="5"></textarea>
+						<textarea class="form-control" name="description" rows="5">{{ old('description') }}</textarea>
 						@if ($errors->has('description'))
 							<span class="help-block"><strong>{{ $errors->first('description') }}</strong></span>
 						@endif
 					</div>
 					<div class="form-group {{ $errors->has('technicalText') ? 'has-error' : '' }}">
 						<label>Technische tekst</label>
-						<textarea class="form-control" name="technicalText" rows="5"></textarea>
+						<textarea class="form-control" name="technicalText" rows="5">{{ old('technicalText') }}</textarea>
 						@if ($errors->has('technicalText'))
 							<span class="help-block"><strong>{{ $errors->first('technicalText') }}</strong></span>
 						@endif
@@ -52,7 +52,7 @@
 						@foreach($colors as $color)
 							<ul>
 								<li>
-									<input type="checkbox" name="color_id[]" value="{{ $color->id }}">{{ $color->name }}</option>
+									<input @if(old('color_id') != "") @foreach(old('color_id') as $colorId) @if($colorId == $color->id) checked @endif @endforeach @endif type="checkbox" id="color{{ $color->id }}" name="color_id[]" value="{{ $color->id }}"> <label for="color{{ $color->id }}">{{ $color->name }}</label>
 								</li>
 							</ul>
 						@endforeach
@@ -64,7 +64,7 @@
 						<label>Categorie</label>
 						<select class="form-control" name="tag_id">
 							@foreach($tags as $tag)
-								<option value="{{ $tag->id }}">{{ $tag->displayName }}</option>
+								<option @if(old('tag_id') == $tag->id) selected @endif value="{{ $tag->id }}">{{ $tag->displayName }}</option>
 							@endforeach
 						</select>
 						@if ($errors->has('tag_id'))
@@ -75,7 +75,7 @@
 						<label>Categorie</label>
 						<select class="form-control" name="category_id">
 							@foreach($categories as $category)
-								<option value="{{ $category->id }}">{{ $category->name }}</option>
+								<option @if(old('category_id') == $category->id) selected @endif value="{{ $category->id }}">{{ $category->name }}</option>
 							@endforeach
 						</select>
 						@if ($errors->has('category_id'))

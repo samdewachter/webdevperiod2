@@ -19,6 +19,7 @@ class AboutController extends Controller
     {
     	$this->validate($request, [
             'email' => 'required|email',
+            'text' => 'required'
         ]);
 
         $emailFrom =  $request->email;

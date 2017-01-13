@@ -31,7 +31,7 @@
 									<td>
 										<ul>
 											<li>
-												<form method="POST" action="{{ url('admindashboard/product/faq/delete', [$product->id, $faq->id]) }}">
+												<form method="POST" action="{{ url('admindashboard/product/faq/delete', [$product->url, $faq->id]) }}">
 													{{ csrf_field() }}
 													<input type="hidden" name="_method" value="DELETE" />
 													<button type="submit" class="btn btn-danger" aria-label="Left Align">

@@ -95,16 +95,8 @@ class CategoryController extends Controller
     	return view('categories.index', compact('products', 'category', 'tags', 'tagsExplode', 'sort'));
     }
 
-    public function showProduct(Category $category, $product, Request $request)
+    public function showProduct(Category $category, Product $product, Request $request)
     {
-
-        try {
-            $product = Product::findOrFail($product);
-        } catch (ModelNotFoundException $e) {
-            return view('errors.404');
-        }
-
-
         if ($request->cookie('language')) {
             $language = $request->cookie('language');
 

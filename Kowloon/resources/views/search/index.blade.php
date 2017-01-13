@@ -69,7 +69,7 @@
 				<div class="searched-products">
 			
 					@foreach($products as $product)
-						<a href="{{ url('categories', [$product->category->url, 'product', $product->id]) }}">
+						<a href="{{ url('categories', [$product->category->url, 'product', $product->url]) }}">
 							<div class="searched-product">
 								<h4>{{$product->name}}</h4>
 								<h5>{{ $product->category->name }}</h5>

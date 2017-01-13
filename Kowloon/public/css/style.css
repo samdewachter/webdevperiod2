@@ -87,7 +87,7 @@ aside .bottom strong {
     margin-bottom: 10px;
 }
 
-.glyphicon-user, .glyphicon-lock, .glyphicon-log-out {
+.glyphicon-envelope, .glyphicon-lock, .glyphicon-log-out {
     font-size: 22px;
     margin-right: 15px;
 }
@@ -220,6 +220,7 @@ aside a:hover {
     padding: 20px;
     color: white;
     background-color: #454545;
+    min-height: calc(100% - 400px);
 }
 
 .info {
@@ -253,6 +254,10 @@ aside a:hover {
     background-color: #5a5a5a;
     padding: 5px;
     margin: 5px 2px;
+}
+
+.hot-item .photo {
+    text-align: center;
 }
 
 .hot-items .col-md-3 {
@@ -549,6 +554,11 @@ aside a:hover {
     margin-right: 10px;
 }
 
+.dimensions {
+    display: block;
+    margin: 10px 0;
+}
+
 /* PRODUCTS PAGE STYLING */
 
 .category-tags ul, .filter-by-collection ul {
@@ -672,6 +682,10 @@ aside a:hover {
     display: inline-block;
 }
 
+.product .photo {
+    text-align: center;
+}
+
 /* SINGLE PRODUCT PAGE STYLING */
 
 .product-wrapper{
@@ -712,7 +726,30 @@ aside a:hover {
 }
 
 .main-picture img {
+    height: 200px;
+}
+
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
     height: 100%;
+    text-align: center;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 80%;
+    margin-top: 2%;
+}
+
+.lightbox:target {
+    outline: none;
+    display: block;
 }
 
 .other-picture {
@@ -795,6 +832,7 @@ aside a:hover {
 .related-product-picture {
     height: 100px;
     overflow: hidden;
+    text-align: center;
 }
 
 .related-product .product-name {
