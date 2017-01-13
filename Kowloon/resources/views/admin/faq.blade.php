@@ -5,7 +5,11 @@
 	<div class="dashboard-faq-wrapper">
 
 		<div class="dashboard-faq col-md-10 col-md-offset-1">
-
+			@if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
 			<h1>Faq <a class="btn btn-primary" href="{{ url('admindashboard/faq/new') }}">Maak een nieuwe faq aan</a></h1> 
 			<div class="FAQ-questions">
 				@foreach($faqs as $faq)

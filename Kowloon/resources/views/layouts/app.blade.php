@@ -57,6 +57,7 @@
                         <li class="nav-normal"><a href="{{ url('categories/bird') }}"><img class="category-icon" src="@if(Request::is('categories/bird')) {{ url('/img/categories/bird.png') }} @else {{ url('/img/categories/white_bird.png') }} @endif"><strong class="nav-text">Bird</strong></a></li>
                         <li class="nav-normal"><a href="{{ url('categories/fish') }}"><img class="category-icon" src="@if(Request::is('categories/fish')) {{ url('/img/categories/fish.png') }} @else {{ url('/img/categories/white_fish.png') }} @endif"><strong class="nav-text">Fish</strong></a></li>
                         <li class="nav-normal"><a href="{{ url('categories/smallanimals') }}"><img class="category-icon" src="@if(Request::is('categories/smallanimals')) {{ url('/img/categories/hamster.png') }} @else {{ url('/img/categories/white_hamster.png') }} @endif"><strong class="nav-text">Small animals</strong></a></li>
+                        <li class="nav-normal {{ (Request::is('categories/other') ? 'active-other' : '') }}"><a href="{{ url('categories/other') }}"><img class="category-other" src="{{ url('/img/categories/other.png') }}"><strong class="nav-text">Other</strong></a></li>
                     </ul>
                 </div>
 
@@ -91,8 +92,16 @@
 
         </div>
 
-        <!-- <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-        <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-90325820-1', 'auto');
+          ga('send', 'pageview');
+
+        </script>
 
         <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

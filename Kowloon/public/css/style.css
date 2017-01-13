@@ -126,7 +126,7 @@ aside a:hover {
     color: #5a5a5a;
 }
 
-.active-FAQ, .active-search {
+.active-FAQ, .active-search, .active-other {
     background-color: #ededed;
 }
 
@@ -136,6 +136,14 @@ aside a:hover {
 
 .language {
     margin-right: 15px;
+}
+
+.active-other a {
+    color: #5a5a5a;
+}
+
+.active-other a:hover {
+    color: #5a5a5a;
 }
 
 /* CAROUSEL */
@@ -453,6 +461,14 @@ aside a:hover {
 
 .toggle-search-filter {
     cursor: pointer;
+}
+
+.searched-products a {
+    color: black;
+}
+
+.searched-products a:hover {
+    color: black;
 }
 
 /* ADMIN DASHBOARD STYLING */

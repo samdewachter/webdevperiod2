@@ -7,23 +7,36 @@
 		<div class="col-md-10 col-md-offset-1">
 			
 			<div class="product clearfix">
-
+				@if (session('success'))
+	                <div class="alert alert-success">
+	                    {{ session('success') }}
+	                </div>
+	            @endif
 				<div class="col-md-6">
 					<div class="product-pictures clearfix">
 						<div class="main-picture">
-							@foreach($product->photos as $photo)
-								<img src="{{ url('uploads/products', $photo->name) }}">
-							@endforeach
+							@if(count($product->photos) > 0)
+								@foreach($product->photos as $photo)
+									<img src="{{ url('uploads/products', $photo->name) }}">
+								@endforeach
+							@else
+								<img src="{{ url('img/Home_img2.png') }}">
+							@endif
 						</div>
 						<div class="other-pictures">
-							@foreach($product->photos as $photo)
-								<div class="col-md-4">
-									<div class="other-picture">
-										<img src="{{ url('uploads/products', $photo->name) }}">
+							@if(count($product->photos) > 0)
+								@foreach($product->photos as $photo)
+									<div class="col-md-4">
+										<div class="other-picture">
+											<img src="{{ url('uploads/products', $photo->name) }}">
+										</div>
 									</div>
-								</div>
-							@endforeach
+								@endforeach
+							@endif
 						</div>
+						@if(count($product->photos) < 1)
+							<div class="alert alert-info">Er zijn geen foto's voor dit product.</div>
+						@endif
 					</div>
 				</div>
 
@@ -82,7 +95,7 @@
 
 				<h4>{{ Lang::get('product.related') }}</h4>
 				@if(count($products) == 1)
-					Er zijn geen related producten.
+					<div class"alert alert-info">Er zijn geen related producten.</div>
 				@endif
 				@foreach($products as $relatedProduct)
 
@@ -105,7 +118,7 @@
 			<div class="product-FAQ-wrapper clearfix">
 				<h4>{{ Lang::get('product.faq') }}</h4>
 				@if(count($product->Faqs) == 0)
-					Er zijn geen FAQs voor dit product.
+					<div class="alert alert-info">Er zijn geen FAQs voor dit product.</div>
 				@endif
 				<div class="product-FAQs">
 					@foreach($product->Faqs as $faq)

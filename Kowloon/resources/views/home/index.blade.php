@@ -17,6 +17,11 @@
     </div>
     <div class="content-wrapper clearfix">
         <div class="col-md-10 col-md-offset-1">
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
             <div class="info">
                 <p>{{ Lang::get('info.intro') }}</p>
             </div>
@@ -47,7 +52,7 @@
                                         @if(count($hotItem->product->photos) > 1)
                                             <div class="product-count-photos"> {{ count($hotItem->product->photos) }} </div>
                                         @endif
-                                        @if(count($hotItem->product->Photos) >= 1)<img src="{{ url('uploads/products', [$hotItem->product->Photos[0]->name]) }}">@endif
+                                        @if(count($hotItem->product->Photos) >= 1)<img src="{{ url('uploads/products', [$hotItem->product->Photos[0]->name]) }}"> @else <img src="{{ url('img/Home_img2.png') }}"> @endif
                                     </div>
                                     <div class="hot-item-info clearfix">
                                         <div class="pull-left">

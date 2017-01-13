@@ -5,6 +5,11 @@
 	<div class="dashboard-products-wrapper clearfix">
 
 		<div class="dashboard-products col-md-10 col-md-offset-1">
+			@if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
 
 			<h1>Wijzig faq {{ $product->name }}</h1> 
 

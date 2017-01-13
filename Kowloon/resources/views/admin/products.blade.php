@@ -6,6 +6,17 @@
 
 		<div class="dashboard-products col-md-10 col-md-offset-1">
 
+			@if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+            @if (session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+            @endif
+
 			<h1>Hot products</h1>
 
 			<div class="hotproducts-table">

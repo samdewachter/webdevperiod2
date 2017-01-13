@@ -64,7 +64,7 @@ class AdminController extends Controller
         $files = $request->file('photo');
 
         if (!$product->save()) {
-            return "Er is iets fout gelopen met het opslagen van het product";
+            return redirect('admindashboard/products')->with('error', 'Product is niet succesvol aangemaakt.');
         }
 
         foreach ($files as $file) {
@@ -88,16 +88,18 @@ class AdminController extends Controller
             $product->Colors()->attach($color);
         }        
 
-        return redirect('admindashboard/products');
+        return redirect('admindashboard/products')->with('success', 'Product is succesvol aangemaakt.');
     }
 
     public function deleteProduct(Product $product)
     {
         $product->Colors()->detach();
 
-        $product->delete();
+        if(!$product->delete()) {
+            return back()->with('error', 'Product is niet succesvol verwijderd.');
+        }
 
-        return back();
+        return back()->with('success', 'Product is succesvol verwijderd.');
     }
 
     public function editProduct(Product $product)
@@ -195,7 +197,7 @@ class AdminController extends Controller
         }
 
         if ($request->place == 4) {
-            return redirect('admindashboard/products');
+            return redirect('admindashboard/products')->with('success', 'Product is succesvol aangepast.');
         }
 
         if (count($product->hotItems) == 1) {
@@ -225,7 +227,7 @@ class AdminController extends Controller
 
         $hotItem->save();        
 
-        return redirect('admindashboard/products');
+        return redirect('admindashboard/products')->with('success', 'Product is succesvol aangepast.');
     }
 
     public function editFaqProduct(Product $product)
@@ -243,14 +245,14 @@ class AdminController extends Controller
 
         $faqProduct->save();
 
-        return back();
+        return back()->with('success', 'FAQ is succesvol aangewezen.');
     }
 
     public function deleteFaqProduct(Product $product, $faqproduct)
     {
         $product->Faqs()->detach($faqproduct);
 
-        return back();
+        return back()->with('success', 'FAQ is succesvol verwijderd van het product.');
     }
 
     public function hotproducts()
@@ -284,7 +286,7 @@ class AdminController extends Controller
         $hotItem1->save();
         $hotItem2->save();
 
-        return redirect('admindashboard/products');
+        return redirect('admindashboard/products')->with('success', 'Hot product is succesvol gewijzigd.');
     }
 
     public function faq()
@@ -312,10 +314,10 @@ class AdminController extends Controller
         $faq->answer = $request->answer;
 
         if (!$faq->save()) {
-            return "Er is iets fout gelopen met het opslagen van de FAQ";
+            return redirect('admindashboard/faq')->with('error', 'FAQ is niet succesvol aangemaakt.');
         }
 
-        return redirect('admindashboard/faq');
+        return redirect('admindashboard/faq')->with('success', 'FAQ is succesvol aangemaakt.');
 
     }
 
@@ -323,7 +325,7 @@ class AdminController extends Controller
     {
         $faq->delete();
 
-        return back();
+        return back()->with('success', 'FAQ is succesvol verwijderd.');
     }
 
     public function editFaq(Faq $faq)
@@ -343,6 +345,6 @@ class AdminController extends Controller
 
         $faq->save();
 
-        return redirect('admindashboard/faq');
+        return redirect('admindashboard/faq')->with('success', 'FAQ is succesvol gewijzigd.');
     }
 }

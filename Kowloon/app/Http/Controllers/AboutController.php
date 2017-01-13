@@ -35,6 +35,6 @@ class AboutController extends Controller
 
         });
 
-    	return back();
+    	return back()->with('success', 'Contact email is succesvol verzonden!');
     }
 }

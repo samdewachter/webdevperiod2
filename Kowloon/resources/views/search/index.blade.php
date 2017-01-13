@@ -69,12 +69,14 @@
 				<div class="searched-products">
 			
 					@foreach($products as $product)
-						<div class="searched-product">
-							<h4>{{$product->name}}</h4>
-							<h5>{{ $product->category->name }}</h5>
-							<h6>€{{ $product->price }}</h6>
-							{{$product->description}}
-						</div>
+						<a href="{{ url('categories', [$product->category->url, 'product', $product->id]) }}">
+							<div class="searched-product">
+								<h4>{{$product->name}}</h4>
+								<h5>{{ $product->category->name }}</h5>
+								<h6>€{{ $product->price }}</h6>
+								{{$product->description}}
+							</div>
+						</a>
 					@endforeach
 				</div>
 				{{ $products->links() }}

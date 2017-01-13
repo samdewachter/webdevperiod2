@@ -74,16 +74,22 @@
 			</form>
 			<div class="products clearfix">
 
-
+				@if(count($products) < 1)
+					<div class="alert alert-info">Er zijn nog geen producten voor deze categorie.</div>
+				@endif
 				@foreach($products as $product)
 					<a href="{{ url('categories', [$category->url, 'product', $product->id]) }}">
 						<div class="col-md-3">
 							<div class="product">
 								<div class="photo">
-									@if(count($product->photos) > 1)
-										<div class="product-count-photos"> {{ count($product->photos) }} </div>
+									@if(count($product->photos) > 0)
+										@if(count($product->photos) > 1)
+											<div class="product-count-photos"> {{ count($product->photos) }} </div>
+										@endif
+										<img src="{{ url('uploads/products', $product->photos[0]->name) }}">
+									@else
+										<img src="{{ url('img/Home_img2.png') }}">
 									@endif
-									<img src="{{ url('uploads/products', $product->photos[0]->name) }}">
 								</div>
 								<div class="hot-item-info clearfix">
 									<div class="pull-left">

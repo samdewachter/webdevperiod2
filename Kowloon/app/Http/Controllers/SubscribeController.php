@@ -34,6 +34,6 @@ class SubscribeController extends Controller
 
         });
 
-    	return back();
+    	return back()->with('success', 'U bent succesvol geabonneerd op onze nieuwsbrief!');
     }
 }

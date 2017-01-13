@@ -18,6 +18,11 @@
 						<li>about us</li>
 					</ul>
 				</div>
+				@if (session('success'))
+				    <div class="alert alert-success">
+				        {{ session('success') }}
+				    </div>
+				@endif
 				<div class="about-us clearfix">
 					<h1>ABOUT US</h1>
 					<div class="about-kowloon col-md-8">
